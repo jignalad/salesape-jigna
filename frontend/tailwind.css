@@ -2,22 +2,366 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Simple components */
-.btn {
-  @apply px-3 py-2 rounded-md text-sm font-medium;
+/* Retro Windows 95/98 Style with Soft Pastels */
+@layer base {
+  body {
+    @apply bg-gradient-to-br from-pink-100 via-purple-50 to-blue-100;
+    font-family: 'MS Sans Serif', 'Segoe UI', sans-serif;
+  }
 }
-.btn-primary {
-  @apply bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50;
-}
-.input {
-  @apply w-full border rounded-md p-2;
-}
-.textarea {
-  @apply w-full border rounded-md p-2;
-}
-.msg-user {
-  @apply bg-blue-50 border border-blue-200;
-}
-.msg-ai {
-  @apply bg-gray-50 border border-gray-200;
+
+@layer components {
+  /* Windows-style beveled borders */
+  .win-border-inset {
+    border-style: inset;
+    border-width: 2px;
+    border-top-color: #808080;
+    border-left-color: #808080;
+    border-bottom-color: #ffffff;
+    border-right-color: #ffffff;
+  }
+  
+  .win-border-outset {
+    border-style: outset;
+    border-width: 2px;
+    border-top-color: #ffffff;
+    border-left-color: #ffffff;
+    border-bottom-color: #808080;
+    border-right-color: #808080;
+  }
+  
+  .win-border-sunken {
+    box-shadow: 
+      inset 1px 1px 0px #808080,
+      inset -1px -1px 0px #ffffff,
+      1px 1px 0px #ffffff,
+      -1px -1px 0px #808080;
+  }
+
+  /* Retro buttons */
+  .btn {
+    @apply px-3 py-2 text-sm font-medium;
+    background: linear-gradient(to bottom, #E6D4F0, #D4C4E0);
+    border: 2px outset #C4B4D0;
+    color: #4A4A4A;
+    text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    font-family: 'MS Sans Serif', sans-serif;
+  }
+  
+  .btn:hover {
+    background: linear-gradient(to bottom, #F0E6F8, #E6D4F0);
+  }
+  
+  .btn:active {
+    border-style: inset;
+    background: linear-gradient(to bottom, #D4C4E0, #E6D4F0);
+  }
+  
+  .btn-primary {
+    background: linear-gradient(to bottom, #B8E6B8, #A4D4A4);
+    border: 2px outset #94C494;
+    color: #2A5A2A;
+  }
+  
+  .btn-primary:hover {
+    background: linear-gradient(to bottom, #D4F4D4, #B8E6B8);
+  }
+  
+  .btn-primary:active {
+    border-style: inset;
+    background: linear-gradient(to bottom, #A4D4A4, #B8E6B8);
+  }
+  
+  .btn-negative {
+    background: linear-gradient(to bottom, #FFD4E6, #FFC4D6);
+    border: 2px outset #FFB4C6;
+  }
+  
+  .btn-negative:hover {
+    background: linear-gradient(to bottom, #FFE6F0, #FFD4E6);
+  }
+  
+  .btn-negative:active {
+    border-style: inset;
+    background: linear-gradient(to bottom, #FFC4D6, #FFD4E6);
+  }
+
+  /* Input fields */
+  .input, .textarea {
+    @apply w-full p-2;
+    background: #FFFFFF;
+    border: 2px inset #C4B4D0;
+    color: #4A4A4A;
+    font-family: 'MS Sans Serif', sans-serif;
+  }
+  
+  .input:focus, .textarea:focus {
+    outline: 1px dotted #808080;
+    outline-offset: -3px;
+  }
+
+  /* Message bubbles */
+  .msg-user {
+    background: linear-gradient(to bottom, #FFE5D4, #FFF0E6);
+    border: 2px inset #FFD4C4;
+    box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.1);
+  }
+  
+  .msg-ai {
+    background: linear-gradient(to bottom, #E6F0FF, #F0F6FF);
+    border: 2px inset #D4E6FF;
+    box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Windows-style panels */
+  .win-panel {
+    background: linear-gradient(to bottom, #F8F4F0, #F0ECE8);
+    border: 2px outset #E0DCD8;
+    box-shadow: 
+      inset -1px -1px 0px #C8C4C0,
+      inset 1px 1px 0px #FFFFFF;
+  }
+  
+  .win-panel-inset {
+    background: #F0ECE8;
+    border: 2px inset #E0DCD8;
+    box-shadow: 
+      inset 1px 1px 0px #808080,
+      inset -1px -1px 0px #FFFFFF;
+  }
+
+  /* Tab styles */
+  .win-tab {
+    background: linear-gradient(to bottom, #F8F4F0, #F0ECE8);
+    border: 1px solid #C8C4C0;
+    border-bottom: none;
+    color: #4A4A4A;
+    cursor: pointer;
+  }
+  
+  .win-tab:hover {
+    background: linear-gradient(to bottom, #FFFFFF, #F8F4F0);
+  }
+  
+  .win-tab-active {
+    background: linear-gradient(to bottom, #FFFFFF, #F8F4F0);
+    border: 2px outset #E0DCD8;
+    border-bottom: 2px solid #F8F4F0;
+    z-index: 1;
+    position: relative;
+  }
+  
+  /* Scrollbar styling for retro feel */
+  ::-webkit-scrollbar {
+    width: 16px;
+    height: 16px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #F0ECE8;
+    border: 1px inset #E0DCD8;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #E0DCD8, #D0CCC8);
+    border: 1px outset #C8C4C0;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(to bottom, #D0CCC8, #C0BCB8);
+  }
+  
+  ::-webkit-scrollbar-button {
+    background: linear-gradient(to bottom, #F0ECE8, #E0DCD8);
+    border: 1px outset #C8C4C0;
+    height: 16px;
+    width: 16px;
+  }
+  
+  ::-webkit-scrollbar-button:vertical:start:decrement {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M0 4 L4 0 L8 4' fill='%234A4A4A'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  
+  ::-webkit-scrollbar-button:vertical:end:increment {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M0 0 L4 4 L8 0' fill='%234A4A4A'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  
+  /* Markdown content styling */
+  .markdown-content {
+    line-height: 1.6;
+  }
+  
+  .markdown-content h1,
+  .markdown-content h2,
+  .markdown-content h3,
+  .markdown-content h4,
+  .markdown-content h5,
+  .markdown-content h6 {
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+    font-weight: bold;
+    color: #4A4A4A;
+    text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.5);
+  }
+  
+  .markdown-content h1 {
+    font-size: 1.5em;
+    border-bottom: 2px solid #C8C4C0;
+    padding-bottom: 0.3em;
+  }
+  
+  .markdown-content h2 {
+    font-size: 1.3em;
+    border-bottom: 1px solid #C8C4C0;
+    padding-bottom: 0.2em;
+  }
+  
+  .markdown-content h3 {
+    font-size: 1.1em;
+  }
+  
+  .markdown-content p {
+    margin: 0.5em 0;
+  }
+  
+  .markdown-content p:first-child {
+    margin-top: 0;
+  }
+  
+  .markdown-content p:last-child {
+    margin-bottom: 0;
+  }
+  
+  .markdown-content ul,
+  .markdown-content ol {
+    margin: 0.5em 0;
+    padding-left: 2em;
+  }
+  
+  .markdown-content li {
+    margin: 0.25em 0;
+  }
+  
+  .markdown-content ul {
+    list-style-type: disc;
+  }
+  
+  .markdown-content ol {
+    list-style-type: decimal;
+  }
+  
+  .markdown-content code {
+    background: #F0ECE8;
+    border: 1px inset #E0DCD8;
+    padding: 0.2em 0.4em;
+    border-radius: 2px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9em;
+    color: #4A4A4A;
+  }
+  
+  .markdown-content pre {
+    background: #F0ECE8;
+    border: 2px inset #E0DCD8;
+    padding: 0.75em;
+    border-radius: 2px;
+    overflow-x: auto;
+    margin: 0.75em 0;
+  }
+  
+  .markdown-content pre code {
+    background: transparent;
+    border: none;
+    padding: 0;
+    font-size: 0.85em;
+    display: block;
+  }
+  
+  .markdown-content blockquote {
+    border-left: 3px solid #C8C4C0;
+    padding-left: 1em;
+    margin: 0.75em 0;
+    color: #6A6A6A;
+    font-style: italic;
+    background: rgba(240, 236, 232, 0.3);
+    padding: 0.5em 1em;
+  }
+  
+  .markdown-content a {
+    color: #4A6A9A;
+    text-decoration: underline;
+  }
+  
+  .markdown-content a:hover {
+    color: #6A8ABA;
+  }
+  
+  .markdown-content table {
+    border-collapse: collapse;
+    margin: 0.75em 0;
+    width: 100%;
+  }
+  
+  .markdown-content table th,
+  .markdown-content table td {
+    border: 1px solid #C8C4C0;
+    padding: 0.5em;
+    text-align: left;
+  }
+  
+  .markdown-content table th {
+    background: linear-gradient(to bottom, #F8F4F0, #F0ECE8);
+    font-weight: bold;
+  }
+  
+  .markdown-content table tr:nth-child(even) {
+    background: rgba(240, 236, 232, 0.5);
+  }
+  
+  .markdown-content hr {
+    border: none;
+    border-top: 2px solid #C8C4C0;
+    margin: 1em 0;
+  }
+  
+  .markdown-content strong {
+    font-weight: bold;
+    color: #4A4A4A;
+  }
+  
+  .markdown-content em {
+    font-style: italic;
+  }
+  
+  .markdown-content img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #C8C4C0;
+  }
+  
+  /* Common text color utilities */
+  .text-primary {
+    color: #4A4A4A;
+  }
+  
+  .text-secondary {
+    color: #808080;
+  }
+  
+  .text-tertiary {
+    color: #6A6A6A;
+  }
+  
+  .text-success {
+    color: #2A7A2A;
+  }
+  
+  .text-error {
+    color: #7A2A2A;
+  }
 }

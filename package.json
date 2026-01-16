@@ -11,16 +11,18 @@
     "format": "prettier -w ."
   },
   "devDependencies": {
-    "vite": "^5.4.0",
-    "typescript": "^5.4.0",
-    "tailwindcss": "^3.4.0",
-    "postcss": "^8.4.0",
+    "@typescript-eslint/eslint-plugin": "^7.0.0",
+    "@typescript-eslint/parser": "^7.0.0",
     "autoprefixer": "^10.4.0",
     "eslint": "^8.57.0",
-    "@typescript-eslint/parser": "^7.0.0",
-    "@typescript-eslint/eslint-plugin": "^7.0.0",
     "eslint-config-prettier": "^9.1.0",
-    "prettier": "^3.3.0"
+    "postcss": "^8.4.0",
+    "prettier": "^3.3.0",
+    "tailwindcss": "^3.4.0",
+    "typescript": "^5.4.0",
+    "vite": "^5.4.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "marked": "^17.0.1"
+  }
 }

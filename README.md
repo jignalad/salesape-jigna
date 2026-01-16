@@ -21,7 +21,7 @@ How else can you improve the application?
 ## Technical Overview
 - Backend: Django 5 + DRF, SQLite for local dev
 - Frontend: Vite + TypeScript + Tailwind, built to `static/app/`
-- AI: Google Gemini via `google-generativeai` (no streaming)
+- AI: Google Gemini via `google-genai` (no streaming)
 
 ### Prerequisites
 
